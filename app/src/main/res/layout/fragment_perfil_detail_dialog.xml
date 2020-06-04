@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/ivDetailSpeakerImage"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@mipmap/ic_launcher"/>
+                        <Button
+                            android:id="@+id/btnCambiarFoto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Cambiar foto"
+                            android:textSize="15dp"
+                            android:gravity="left"
+                            android:textColor="@color/colorBotonTexto"
+                            style="@style/Widget.MaterialComponents.Button"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mi nombre"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"/>
+
+                    <EditText
+                        android:id="@+id/tfNombre_perfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </EditText>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mi correo"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"/>
+
+                    <EditText
+                        android:id="@+id/tfCorreo_perfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </EditText>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <Button
+                            android:id="@+id/btnGuardar_perfil"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Guardar"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/colorBotonTexto"
+                            android:textAlignment="center"
+                            app:icon="@drawable/ic_pencil"
+                            app:iconPadding="4dp"
+                            app:iconGravity="textStart"
+                            style="@style/Widget.MaterialComponents.Button"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </ScrollView>
+
+    </FrameLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnvMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_navigation_menu" />
+
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="10dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nombre de la tarea"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"/>
+
+                    <EditText
+                        android:id="@+id/tfNombreDeTarea_agregar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </EditText>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Descripcion"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"/>
+
+                    <EditText
+                        android:id="@+id/tfDescripcionDeTarea_agregar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </EditText>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha de entrega"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"/>
+                    <DatePicker
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:datePickerMode="spinner"
+                        android:calendarViewShown="false"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hora (Opcional)"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"/>
+                    <TimePicker
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:timePickerMode="spinner"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Integrantes de equipo"
+                            android:gravity="left"
+                            android:layout_marginTop="5dp"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginLeft="15dp"/>
+                        <Button
+                            android:id="@+id/btnNuevoIntegrante"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nuevo integrante"
+                            android:textSize="15dp"
+                            android:textColor="@color/colorBotonTexto"
+                            app:icon="@drawable/ic_pencil"
+                            app:iconPadding="4dp"
+                            app:iconGravity="textStart"
+                            style="@style/Widget.MaterialComponents.Button.Icon"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:stretchColumns="2">
+                            <TableRow>
+                                <TextView
+                                    android:text="Aquí deberia ir el nombre de un integrante."
+                                    android:padding="3dip" />
+                            </TableRow>
+
+                            <TableRow>
+                                <TextView
+                                    android:text="Aquí debería ir el nombre de un integrante"
+                                    android:padding="3dip" />
+                            </TableRow>
+                        </TableLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <Button
+                            android:id="@+id/btnAgregarTarea"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Agregar"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/colorBotonTexto"
+                            app:icon="@drawable/ic_pencil"
+                            app:iconPadding="4dp"
+                            app:iconGravity="textStart"
+                            style="@style/Widget.MaterialComponents.Button.Icon"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </ScrollView>
+
+
+
+    </FrameLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnvMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_navigation_menu" />
+
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

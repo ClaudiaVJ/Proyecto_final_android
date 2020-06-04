@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/inicioSesionFragment"
+        android:name="com.itnl.expotech.view.ui.fragments.InicioSesionFragment"
+        android:label="InicioSesionFragment"
+        tools:layout="@layout/fragment_inicio_sesion">
+        <action
+            android:id="@+id/action_inicioSesionFragment_to_registroFragment"
+            app:destination="@id/registroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.itnl.proyecto_final.view.ui.fragments.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_agregarTareaFragment"
+            app:destination="@id/agregarTareaFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_tareaCompletadaFragment"
+            app:destination="@id/tareaCompletadaFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_perfilDetailDF"
+            app:destination="@id/perfilDetailDF" />
+        <action
+            android:id="@+id/action_homeFragment_to_tareaDetailDF"
+            app:destination="@id/tareaDetailDF" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarTareaFragment"
+        android:name="com.itnl.expotech.view.ui.fragments.AgregarTareaFragment"
+        android:label="AgregarTareaFragment"
+        tools:layout="@layout/fragment_agregar_tarea">
+        <action
+            android:id="@+id/action_agregarTareaFragment_to_agregarIntegranteFragment"
+            app:destination="@id/agregarIntegranteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarIntegranteFragment"
+        android:name="com.itnl.proyecto_final.view.ui.fragments.AgregarIntegranteFragment"
+        android:label="AgregarIntegranteFragment"
+        tools:layout="@layout/fragment_agregar_integrante"/>
+    <fragment
+        android:id="@+id/registroFragment"
+        android:name="com.itnl.expotech.view.ui.fragments.RegistroFragment"
+        android:label="RegistroFragment"
+        tools:layout="@layout/fragment_registro">
+        <action
+            android:id="@+id/action_registroFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tareaCompletadaFragment"
+        android:name="com.itnl.expotech.view.ui.fragments.TareaCompletadaFragment"
+        android:label="TareaCompletadaFragment"
+        tools:layout="@layout/fragment_tarea_completada">
+        <action
+            android:id="@+id/action_tareaCompletadaFragment_to_tareaFragment"
+            app:destination="@id/tareaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tareaFragment"
+        android:name="com.itnl.expotech.view.ui.fragments.TareaFragment"
+        android:label="TareaFragment"
+        tools:layout="@layout/fragment_tarea"/>
+    <dialog
+        android:id="@+id/perfilDetailDF"
+        android:name="com.itnl.expotech.view.ui.fragments.PerfilDetailDF"
+        android:label="PerfilDetailDF"
+        tools:layout="@layout/fragment_perfil_detail_dialog"/>
+    <dialog
+        android:id="@+id/tareaDetailDF"
+        android:name="com.itnl.expotech.view.ui.fragments.TareaDetailDF"
+        android:label="TareaDetailDF"
+        tools:layout="@layout/fragment_tarea_detail_dialog"/>
+
+</navigation>
