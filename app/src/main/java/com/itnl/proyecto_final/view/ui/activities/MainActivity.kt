@@ -1,8 +1,10 @@
-package com.itnl.proyecto_final
+package com.itnl.proyecto_final.view.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.firebase.firestore.FirebaseFirestore
 import com.itnl.proyecto_final.R
@@ -21,10 +23,18 @@ class MainActivity : AppCompatActivity() {
 
         setActionBar(findViewById(R.id.tbMain))
         confignav()
+
+    }
+
+    fun changeFragment(fragment: Fragment){
+        supportFragmentManager.beginTransaction().replace(R.id.relativeLayout,fragment).commit()
     }
 
     fun confignav(){
         NavigationUI.setupWithNavController(bnvMenu ,Navigation.findNavController(this,R.id.fragContent))
+
     }
+
+
 }
 

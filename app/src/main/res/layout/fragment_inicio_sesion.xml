@@ -6,12 +6,9 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarUbication"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
     </com.google.android.material.appbar.AppBarLayout>
     <FrameLayout
+        android:id="@+id/containter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
@@ -83,9 +80,23 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
                             <Button
                                 android:id="@+id/btnIniciarSesion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Iniciar sesión"
+                                android:textSize="15dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/colorBotonTexto"
+                                app:icon="@drawable/ic_pencil"
+                                app:iconPadding="4dp"
+                                app:iconGravity="textStart"
+                                style="@style/Widget.MaterialComponents.Button.Icon"
+                                />
+                            <Button
+                                android:id="@+id/btnRegistrarse"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Iniciar sesión"
