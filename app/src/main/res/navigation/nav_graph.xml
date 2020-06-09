@@ -20,13 +20,7 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_agregarTareaFragment"
-            app:destination="@id/agregarTareaFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_tareaCompletadaFragment"
-            app:destination="@id/tareaCompletadaFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_perfilDetailDF"
-            app:destination="@id/perfilDetailDF" />
+            app:destination="@id/agregarTareaFragment"/>
         <action
             android:id="@+id/action_homeFragment_to_tareaDetailDF"
             app:destination="@id/tareaDetailDF" />
@@ -39,6 +33,9 @@
         <action
             android:id="@+id/action_agregarTareaFragment_to_agregarIntegranteFragment"
             app:destination="@id/agregarIntegranteFragment" />
+        <action
+            android:id="@+id/action_agregarTareaFragment_to_perfilDetailDF"
+            app:destination="@id/perfilDetailDF" />
     </fragment>
     <fragment
         android:id="@+id/agregarIntegranteFragment"
@@ -69,14 +66,14 @@
         android:label="TareaFragment"
         tools:layout="@layout/fragment_tarea"/>
     <dialog
-        android:id="@+id/perfilDetailDF"
-        android:name="com.itnl.expotech.view.ui.fragments.PerfilDetailDF"
-        android:label="PerfilDetailDF"
-        tools:layout="@layout/fragment_perfil_detail_dialog"/>
-    <dialog
         android:id="@+id/tareaDetailDF"
         android:name="com.itnl.expotech.view.ui.fragments.TareaDetailDF"
         android:label="TareaDetailDF"
         tools:layout="@layout/fragment_tarea_detail_dialog"/>
+    <fragment
+        android:id="@+id/perfilDetailDF"
+        android:name="com.itnl.expotech.view.ui.fragments.PerfilDetailDF"
+        android:label="PerfilDetailDF"
+        tools:layout="@layout/fragment_perfil_detail_dialog"/>
 
 </navigation>

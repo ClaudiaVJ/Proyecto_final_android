@@ -1,10 +1,13 @@
 package com.itnl.proyecto_final.modelo
 
-class Usuario {
-    val nombre = ""
-    val apellido = ""
-    val correo = ""
-    val contrasenia = ""
-    val foto = ""
+import java.io.Serializable
+
+class Usuario : Serializable {
+    var idUsuario: Int = 0
+    lateinit var nombre: String
+    lateinit var apellido: String
+    lateinit var correo: String
+    lateinit var contrasenia: String
+    lateinit var foto: String
 
 }

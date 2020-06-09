@@ -10,7 +10,7 @@
         android:layout_height="wrap_content" >
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarTareaDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </androidx.appcompat.widget.Toolbar>
@@ -85,6 +85,7 @@
                         android:layout_marginRight="15dp"
                         android:layout_marginLeft="15dp"/>
                     <DatePicker
+                        android:id="@+id/dpFechaEntrega_detalle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:datePickerMode="spinner"
@@ -100,6 +101,7 @@
                         android:layout_marginRight="15dp"
                         android:layout_marginLeft="15dp"/>
                     <TimePicker
+                        android:id="@+id/tpHoraEntrega_detalles"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:timePickerMode="spinner"/>
@@ -140,6 +142,7 @@
                             android:stretchColumns="2">
                             <TableRow>
                                 <TextView
+                                    android:id="@+id/tvIntegrante_detalle"
                                     android:text="Aquí deberia ir el nombre de un integrante."
                                     android:padding="3dip" />
                             </TableRow>

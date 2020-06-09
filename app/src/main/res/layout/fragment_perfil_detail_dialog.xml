@@ -48,7 +48,7 @@
                         android:gravity="center">
 
                         <ImageView
-                            android:id="@+id/ivDetailSpeakerImage"
+                            android:id="@+id/ivDetailPerfilImage"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
@@ -80,7 +80,23 @@
                         android:id="@+id/tfNombre_perfil"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+                    </EditText>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mi apellido"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"/>
+
+                    <EditText
+                        android:id="@+id/tfApellido_perfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
                     </EditText>
 
                     <TextView
@@ -96,6 +112,24 @@
 
                     <EditText
                         android:id="@+id/tfCorreo_perfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </EditText>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mi contraseña"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"/>
+
+                    <EditText
+                        android:id="@+id/tfContrasenia_perfil"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -134,12 +168,6 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnvMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            app:menu="@menu/bottom_navigation_menu" />
 
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

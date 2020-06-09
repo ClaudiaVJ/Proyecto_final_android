@@ -13,10 +13,7 @@ import com.itnl.proyecto_final.R
  */
 class AgregarTareaFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_agregar_tarea, container, false)
     }

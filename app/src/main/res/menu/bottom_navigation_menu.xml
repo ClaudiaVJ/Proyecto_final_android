@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/item_mis_tareas"
+        android:id="@+id/homeFragment"
         android:icon="@drawable/ic_mis_tareas"
         android:title="@string/apartado_mis_tareas"/>
     <item
-        android:id="@+id/item_agregar_tareas"
+        android:id="@+id/agregarTareaFragment"
         android:icon="@drawable/ic_agregar"
         android:title="@string/apartado_agregar_tarea"/>
     <item
-        android:id="@+id/item_perfil"
+        android:id="@+id/perfilDetailDF"
         android:icon="@drawable/ic_perfil"
         android:title="@string/apartado_perfil"/>
 </menu>
