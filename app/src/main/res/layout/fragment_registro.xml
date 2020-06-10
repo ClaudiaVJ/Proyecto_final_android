@@ -36,7 +36,7 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:id="@+id/ivDetailSpeakerImage"
+                                android:id="@+id/ivFotoPerfil_registro"
                                 android:layout_width="150dp"
                                 android:layout_height="150dp"
                                 android:layout_gravity="center_horizontal"

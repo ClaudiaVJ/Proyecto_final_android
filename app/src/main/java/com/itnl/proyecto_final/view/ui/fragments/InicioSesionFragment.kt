@@ -29,14 +29,15 @@ class InicioSesionFragment : Fragment() {
         btnRegistrarse.setOnClickListener(){
             (context as MainActivity).changeFragment(RegistroFragment.newInstance())
         }
-
     }
 
     companion object{
-        fun newInstance(): InicioSesionFragment{
-            return InicioSesionFragment()
+        fun newInstance(): RegistroFragment{
+            return RegistroFragment()
         }
     }
+
+
 
 
 
