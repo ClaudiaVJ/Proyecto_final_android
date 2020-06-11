@@ -34,6 +34,7 @@ class FirestoreService {
 
     fun getUsuarios(callback: Callback<List<Usuario>>) {
         firebaseFirestore.collection(USUARIOS_COLLECTION_NAME)
+            .orderBy("IdUsuario")
             .get()
             .addOnSuccessListener { result ->
                 for (doc in result) {
@@ -46,6 +47,7 @@ class FirestoreService {
 
     fun getIntegrantes(callback: Callback<List<Integrante>>) {
         firebaseFirestore.collection(INTEGRANTES_COLLECTION_NAME)
+            .orderBy("IdIntegrante")
             .get()
             .addOnSuccessListener { result ->
                 for (doc in result) {

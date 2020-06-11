@@ -47,7 +47,7 @@ class TareaDetailDF : DialogFragment() {
         tfDescripcionDeTarea_detalle.setText(tarea.descripcion)
 
         //val pattern = "dd/MM/yyyy hh:mm a"
-        val anio = SimpleDateFormat("yyyy").toString().toInt()
+        /*val anio = SimpleDateFormat("yyyy").toString().toInt()
         val mes = SimpleDateFormat("MM").toString().toInt()
         val dia = SimpleDateFormat("dd").toString().toInt()
         val hora = SimpleDateFormat("hh").toString().toInt()
@@ -59,7 +59,7 @@ class TareaDetailDF : DialogFragment() {
             tpHoraEntrega_detalles.minute = minuto
             tpHoraEntrega_detalles.is24HourView
         }
-        //val simpleDF = SimpleDateFormat(pattern)
+        //val simpleDF = SimpleDateFormat(pattern)*/
     }
 
     override fun onStart() {

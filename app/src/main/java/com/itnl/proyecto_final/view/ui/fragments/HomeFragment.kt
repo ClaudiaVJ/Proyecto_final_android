@@ -43,7 +43,7 @@ class HomeFragment : Fragment(), HomeListener {
         homeAdapter = HomeAdapter(this)
 
         rvTareas.apply {
-            LayoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
+            //LayoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
             adapter = homeAdapter
         }
         observeViewModel()

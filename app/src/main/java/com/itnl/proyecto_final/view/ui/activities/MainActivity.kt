@@ -23,73 +23,18 @@ class MainActivity : AppCompatActivity() {
 
         setActionBar(findViewById(R.id.tbMain))
         confignav()
+        /*val jsonArrUsuarios = JSONArray("[{'IdUsuario' : 0, 'nombre' : 'Claudia', 'apellido' : 'Verdugo','correo' : 'clau@gmail.com','contrasenia' : '123','imagen' : 'alguna ruta'}, " +
+                "{'IdUsuario' : 2,'nombre' : 'Rodolfo','apellido' : 'Gallardo','correo' : 'rod@gmail.com','contrasenia' : '1234','imagen' : 'alguna ruta'}," +
+                "{'IdUsuario' : 3,'nombre' : 'Yesenia','apellido' : 'Mendoza','correo' : 'yes@gmail.com','contrasenia' : '12345','imagen' : 'alguna ruta'}]")
 
-        val jsonArrUsuarios = JSONArray("[\n" +
-                "            {\n" +
-                "                'IdUsuario' : 0,\n" +
-                "                'nombre' : 'Claudia',\n" +
-                "                'apellido' : 'Verdugo',\n" +
-                "                'correo' : 'clau@gmail.com',\n" +
-                "                'contrasenia' : '123',\n" +
-                "                'imagen' : 'alguna ruta',\n" +
-                "            },\n" +
-                "            {\n" +
-                "                'IdUsuario' : 2,\n" +
-                "                'nombre' : 'Rodolfo',\n" +
-                "                'apellido' : 'Gallardo',\n" +
-                "                'correo' : 'rod@gmail.com',\n" +
-                "                'contrasenia' : '1234',\n" +
-                "                'imagen' : 'alguna ruta',\n" +
-                "            },\n" +
-                "            {\n" +
-                "                 'IdUsuario' : 3,\n" +
-                "                'nombre' : 'Yesenia',\n" +
-                "                'apellido' : 'Mendoza',\n" +
-                "                'correo' : 'yes@gmail.com',\n" +
-                "                'contrasenia' : '12345',\n" +
-                "                'imagen' : 'alguna ruta',\n" +
-                "            }\n" +
-                "        ]")
+        val jsonArrTareas = JSONArray("[{'IdTarea' : 1,'IdUsuario' : 1,'nombre' : 'Proyecto de android','descripcion' : 'Una tarea que me confunde','fechaDeEntrega' : '2020-05-28'}," +
+                "{'IdTarea' : 2,'IdUsuario' : 1,'nombre' : 'Proyecto de ios','descripcion' : 'Una tarea que me confunde','fechaDeEntrega' : '2020-05-28'}," +
+                "{'IdTarea' : 3,'IdUsuario' : 1, 'nombre' : 'Tarea de semaforo','descripcion' : 'Una tarea que me confunde','fechaDeEntrega' : '2020-05-28'}]")
 
-        val jsonArrTareas = JSONArray("[\n" +
-                "            {\n" +
-                "                'IdTarea' : 1,\n" +
-                "                'IdUsuario' : 1,\n" +
-                "                'nombre' : 'Proyecto de android',\n" +
-                "                'descripcion' : 'Una tarea que me confunde',\n" +
-                "                'fechaDeEntrega' : '2020-05-28',\n" +
-                "            },\n" +
-                "            {\n" +
-                "                'IdTarea' : 2,\n" +
-                "                'IdUsuario' : 1,\n" +
-                "                'nombre' : 'Proyecto de ios',\n" +
-                "                'descripcion' : 'Una tarea que me confunde',\n" +
-                "                'fechaDeEntrega' : '2020-05-28',\n" +
-                "            },\n" +
-                "            {\n" +
-                "                'IdTarea' : 3,\n" +
-                "                'IdUsuario' : 1,\n" +
-                "                'nombre' : 'Tarea de semaforo',\n" +
-                "                'descripcion' : 'Una tarea que me confunde',\n" +
-                "                'fechaDeEntrega' : '2020-05-28',\n" +
-                "            }\n" +
-                "        ]")
-
-        val jsonArrIntegrantes= JSONArray("[\n" +
-                "            {\n" +
-                "                'IdIntegrante' : 1,\n" +
-                "                'IdTarea' : 1,\n" +
-                "                'nombre' : 'Heidy',\n" +
-                "                'apellido' : 'Rivera',\n" +
-                "            },\n" +
-                "            {\n" +
-                "                'IdIntegrante' : 2,\n" +
-                "                'IdTarea' : 1,\n" +
-                "                'nombre' : 'Luis',\n" +
-                "                'apellido' : 'Grimaldo',\n" +
-                "            }\n" +
-                "        ]")
-
+        val jsonArrIntegrantes = JSONArray("[{'IdIntegrante' : 1,'IdTarea' : 1,'nombre' : 'Heidy','apellido' : 'Rivera'}," +
+                "{'IdIntegrante' : 2,'IdTarea' : 1,'nombre' : 'Luis','apellido' : 'Grimaldo'}]")
+        */
+        /*
         // acceder a la bd y crear una instancia
         val firebaseFirestore = FirebaseFirestore.getInstance()
         // recorrer el arreglo jason desde 0 hasta el tamaño del arreglo.
@@ -130,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             integrante.apellido = aux.getString("apellido")
 
             firebaseFirestore.collection("integrantes").document().set(integrante)
-        }
+        }*/
     }
 
     fun changeFragment(fragment: Fragment){
