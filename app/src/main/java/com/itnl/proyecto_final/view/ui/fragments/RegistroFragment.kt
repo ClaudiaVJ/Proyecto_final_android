@@ -31,10 +31,6 @@ import java.util.*
  * A simple [Fragment] subclass.
  */
 class RegistroFragment : Fragment() {
-
-    private lateinit var viewModel: UsuarioViewModel
-
-    var respuesta : String = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,21 +46,7 @@ class RegistroFragment : Fragment() {
             (context as MainActivity).changeFragment(InicioSesionFragment.newInstance())
         }
 
-        btnCrearCuenta_registro.setOnClickListener(){
 
-            var editTextNombre = "${tfNombre_registro.text}"
-            var editTextApellido = "${tfApellido_reigistro.text}"
-            var editTextCorreo = "${tfCorreo_registro.text}"
-            var editTextContrasenia = "${tfContrasenia_registro.text}"
-            /*var imageViewFoto = (ivFotoPerfil_registro.drawable as BitmapDrawable).bitmap
-            val stream = ByteArrayOutputStream()
-            imageViewFoto.compress(Bitmap.CompressFormat.PNG, 90, stream)
-            val image = stream.toByteArray()
-            var base64 = Base64.getEncoder().encodeToString(image)*/
-
-            viewModel.sendPostRequest(editTextNombre,editTextApellido,editTextCorreo,editTextContrasenia,"temporal")
-
-        }
 
 
     }

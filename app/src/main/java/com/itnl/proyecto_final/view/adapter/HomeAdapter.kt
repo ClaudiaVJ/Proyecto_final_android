@@ -24,15 +24,10 @@ class HomeAdapter(val homeListener: HomeListener) : RecyclerView.Adapter<HomeAda
         holder.tvNombreDeTarea.text = tarea.nombre
         holder.tvDescripcionDeTarea.text = tarea.descripcion
 
-        val simpleDateformat = SimpleDateFormat("EEE, MMM d,''yy")
-
         val cal = Calendar.getInstance()
-        cal.time = tarea.fechaDeEntrega
-        val monthFormat = simpleDateformat.format(tarea.fechaDeEntrega)
         //val hourFormat = simpleDateformat.format(conference.datetime)
 
         //holder.tvConferenceHour.text = hourFormat
-        holder.tvFechaDeEntrega.text = simpleDateformat.format(tarea.fechaDeEntrega).toUpperCase()
 
         holder.itemView.setOnClickListener {
             homeListener.onTareaClicked(tarea, position)
