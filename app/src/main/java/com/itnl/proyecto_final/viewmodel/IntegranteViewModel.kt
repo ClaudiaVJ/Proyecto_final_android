@@ -1,11 +1,12 @@
 package com.itnl.proyecto_final.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.itnl.proyecto_final.modelo.Integrante
 import com.itnl.proyecto_final.network.FirestoreService
 import java.lang.Exception
 
-class IntegranteViewModel {
+class IntegranteViewModel: ViewModel() {
     val firestoreService = FirestoreService()
     var listIntegrante: MutableLiveData<List<Integrante>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()

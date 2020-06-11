@@ -7,7 +7,7 @@ import com.itnl.proyecto_final.network.Callback
 import com.itnl.proyecto_final.network.FirestoreService
 import java.lang.Exception
 
-class TareaViewModel {
+class TareaViewModel: ViewModel() {
     val firestoreService = FirestoreService()
     var listTarea: MutableLiveData<List<Tarea>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()
