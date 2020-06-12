@@ -58,8 +58,6 @@ class RegistroFragment : Fragment() {
         }
 
         btnCrearCuenta_registro.setOnClickListener(){
-        }
-    }
             val db = FirebaseFirestore.getInstance()
 
             val nombre = tfNombre_registro.text.toString()
@@ -87,8 +85,6 @@ class RegistroFragment : Fragment() {
                     negativeButton("Entendido"){toast("yes")}
                 }.show()
             }
-
-
         }
     }
 
