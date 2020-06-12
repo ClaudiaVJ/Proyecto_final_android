@@ -81,56 +81,9 @@ class RegistroFragment : Fragment() {
         }
 
         btnCrearCuenta_registro.setOnClickListener(){
-            crearNuevaCuenta()
         }
     }
 
-    private fun crearNuevaCuenta() {
-        database = FirebaseDatabase.getInstance()
-        auth = FirebaseAuth.getInstance()
-
-        dbReference = database.reference.child("usuarios")
-        progressBar = ProgressBar(requireActivity())
-
-        val txtName = tfNombre_registro.text.toString()
-        val txtLastName = tfApellido_reigistro.text.toString()
-        val txtEmail = tfCorreo_registro.text.toString()
-        val txtPassword = tfContrasenia_registro.text.toString()
-        progressBar = registro_progressBar
-        if (!TextUtils.isEmpty(txtName) && !TextUtils.isEmpty(txtLastName) && !TextUtils.isEmpty(txtEmail) && !TextUtils.isEmpty(txtPassword)) {
-            progressBar.visibility = View.VISIBLE
-            auth.createUserWithEmailAndPassword(txtEmail, txtPassword)
-                .addOnCompleteListener(requireActivity()) { task: Task<AuthResult> ->
-                    if (task.isComplete) {
-                        val user: FirebaseUser? = auth.currentUser
-                        verifyEmail(user)
-                        val userBD = dbReference.child(user?.uid.toString())
-                        userBD.child("nombre").setValue(txtName)
-                        userBD.child("apellido").setValue(txtLastName)
-                        action()
-                    }
-                }
-        }
-    }
-
-    private fun action(){
-        (context as MainActivity).changeFragment(InicioSesionFragment.newInstance())
-    }
-
-    private fun verifyEmail(user: FirebaseUser?){
-        user?.sendEmailVerification()
-            ?.addOnCompleteListener(requireActivity()) { task: Task<Void> ->
-                if (task.isComplete) {
-                    Toast.makeText(requireActivity(), "Email enviado", Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(
-                        requireActivity(),
-                        "Error al enviar el correo",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
-    }
     companion object {
         fun newInstance(): RegistroFragment{
             return RegistroFragment()
