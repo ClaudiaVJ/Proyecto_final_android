@@ -1,25 +1,13 @@
 package com.itnl.expotech.view.ui.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.itnl.expotech.view.ui.fragments.RegistroFragment.Companion.newInstance
 import com.itnl.proyecto_final.R
-import com.itnl.proyecto_final.modelo.Usuario
 import com.itnl.proyecto_final.view.ui.activities.MainActivity
-import com.itnl.proyecto_final.viewmodel.UsuarioViewModel
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_registro.*
-import org.json.JSONArray
-import java.io.ByteArrayOutputStream
-import java.io.IOException
-import java.util.*
-import kotlin.properties.Delegates
 import com.google.firebase.firestore.FirebaseFirestore
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.toast

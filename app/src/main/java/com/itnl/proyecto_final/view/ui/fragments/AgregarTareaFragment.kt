@@ -7,15 +7,32 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.itnl.proyecto_final.R
+import com.itnl.proyecto_final.network.Comunicador
+import kotlinx.android.synthetic.main.fragment_agregar_tarea.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class AgregarTareaFragment : Fragment() {
+class AgregarTareaFragment : Fragment(), Comunicador {
+
+    var correoDeUsuario: String? = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_agregar_tarea, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        btnAgregarTarea.setOnClickListener(){
+
+        }
+    }
+
+    override fun passData(correo: String) {
+        TODO("Not yet implemented")
+    }
+
 
 }

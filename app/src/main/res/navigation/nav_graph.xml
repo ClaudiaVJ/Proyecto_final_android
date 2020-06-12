@@ -48,9 +48,6 @@
         android:label="RegistroFragment"
         tools:layout="@layout/fragment_registro">
         <action
-            android:id="@+id/action_registroFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-        <action
             android:id="@+id/action_registroFragment_to_inicioSesionFragment"
             app:destination="@id/inicioSesionFragment" />
     </fragment>

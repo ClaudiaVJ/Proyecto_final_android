@@ -2,6 +2,7 @@ package com.itnl.proyecto_final.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.firestore.FirebaseFirestore
 import com.itnl.proyecto_final.modelo.Tarea
 import com.itnl.proyecto_final.network.Callback
 import com.itnl.proyecto_final.network.FirestoreService
@@ -11,6 +12,8 @@ class TareaViewModel: ViewModel() {
     val firestoreService = FirestoreService()
     var listTarea: MutableLiveData<List<Tarea>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()
+    val tarea = Tarea()
+    val db = FirebaseFirestore.getInstance()
 
     fun refresh() {
         getTareasFromFirebase()

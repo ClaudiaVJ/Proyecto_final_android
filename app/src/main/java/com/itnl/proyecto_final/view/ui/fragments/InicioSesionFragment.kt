@@ -6,22 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.toast
 import com.itnl.proyecto_final.R
 import com.itnl.proyecto_final.modelo.Usuario
+import com.itnl.proyecto_final.network.Comunicador
 import com.itnl.proyecto_final.view.ui.activities.MainActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.itnl.proyecto_final.view.ui.fragments.HomeFragment
 import kotlinx.android.synthetic.main.fragment_inicio_sesion.*
-import kotlinx.android.synthetic.main.fragment_registro.*
 
 
 /**
  * A simple [Fragment] subclass.
  */
 class InicioSesionFragment : Fragment() {
+
+    public lateinit var com: Comunicador
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,22 +40,41 @@ class InicioSesionFragment : Fragment() {
         }
 
         btnIniciarSesion.setOnClickListener(){
+
             val db = FirebaseFirestore.getInstance()
             val correo = tfCorreo_iniciar_sesion.text.toString()
             val contrasenia = tfContrasenia_iniciar_sesion.text.toString()
+            var listaDatos = kotlin.collections.ArrayList<String>()
 
             if(correo != "" && contrasenia != ""){
                 val usuarioRef = db.collection("usuarios").whereEqualTo("correo", correo)
-                usuarioRef.get().addOnSuccessListener { documentSnapshot ->
-                    if(documentSnapshot != null){
-                        val usuario = documentSnapshot.toObjects(Usuario::class.java)
-                        alert("${usuario}") {
-                            title = "Alerta"
+                usuarioRef.get().addOnSuccessListener { result ->
+                    if(result != null){
+                        for(document in result){
+                            if(document.get("contrasenia") == contrasenia){
+                                listaDatos.add(document.get("nombre").toString())
+                                listaDatos.add(document.get("apellido").toString())
+                                listaDatos.add(document.get("correo").toString())
+                                listaDatos.add(document.get("contrasenia").toString())
+
+                                alert("Login exitoso") {
+                                    title = "Alerta"
+                                    negativeButton("Entendido"){toast("yes")}
+                                }.show()
+                                val fragmentHome = HomeFragment()
+                                com.passData(fragmentHome, listaDatos)
+                            }else{
+                                alert("La combinacion correo/contraseña no es correcta.") {
+                                    negativeButton("Entendido"){toast("yes")}
+                                }.show()
+                            }
+                        }
+                    }else{
+                        alert("Esta cuenta no existe.") {
                             negativeButton("Entendido"){toast("yes")}
                         }.show()
                     }
                 }
-
             }else{
                 alert("El usuario no existe.") {
                     title = "Alerta"
@@ -71,9 +92,4 @@ class InicioSesionFragment : Fragment() {
             return RegistroFragment()
         }
     }
-
-
-
-
-
 }
