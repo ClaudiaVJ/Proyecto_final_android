@@ -3,20 +3,25 @@ package com.itnl.proyecto_final.view.ui.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.firebase.firestore.FirebaseFirestore
+import com.itnl.expotech.view.ui.fragments.AgregarTareaFragment
 import com.itnl.proyecto_final.R
 import com.itnl.proyecto_final.modelo.Tarea
 import com.itnl.proyecto_final.modelo.Usuario
 import com.itnl.proyecto_final.modelo.Integrante
+import com.itnl.proyecto_final.network.Comunicador
+import com.itnl.proyecto_final.view.ui.fragments.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.*
+import kotlin.collections.ArrayList
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Comunicador {
     var idusuario = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         setActionBar(findViewById(R.id.tbMain))
         confignav()
+        supportActionBar?.hide()
         /*val jsonArrUsuarios = JSONArray("[{'IdUsuario' : 0, 'nombre' : 'Claudia', 'apellido' : 'Verdugo','correo' : 'clau@gmail.com','contrasenia' : '123','imagen' : 'alguna ruta'}, " +
                 "{'IdUsuario' : 2,'nombre' : 'Rodolfo','apellido' : 'Gallardo','correo' : 'rod@gmail.com','contrasenia' : '1234','imagen' : 'alguna ruta'}," +
                 "{'IdUsuario' : 3,'nombre' : 'Yesenia','apellido' : 'Mendoza','correo' : 'yes@gmail.com','contrasenia' : '12345','imagen' : 'alguna ruta'}]")
@@ -80,11 +86,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeFragment(fragment: Fragment){
+
         supportFragmentManager.beginTransaction().replace(R.id.relativeLayout,fragment).commit()
     }
 
     fun confignav(){
         NavigationUI.setupWithNavController(bnvMenu ,Navigation.findNavController(this,R.id.fragContent))
+    }
+
+    override fun passData(fragment: Fragment, listaDatos: kotlin.collections.ArrayList<String>) {
+        val bundle = Bundle()
+        bundle.putStringArrayList("usuario",listaDatos)
+        val transaction = this.supportFragmentManager.beginTransaction()
+        fragment.arguments = bundle
+
+        transaction.replace(R.id.relativeLayout,fragment)
+        transaction.addToBackStack(null)
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        transaction.commit()
     }
 
 
