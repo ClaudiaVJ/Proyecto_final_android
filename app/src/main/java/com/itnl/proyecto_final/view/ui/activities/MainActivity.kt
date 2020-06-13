@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity(), Comunicador {
         setContentView(R.layout.fragment_inicio_sesion)
         setActionBar(findViewById(R.id.tbMain))
         supportActionBar?.hide()
+        var progressbar = progressBar2
 
         btnRegistrarse.setOnClickListener(){
             val intent = Intent(this, RegisterActivity::class.java)
@@ -53,7 +54,10 @@ class MainActivity : AppCompatActivity(), Comunicador {
         var listaDatos = kotlin.collections.ArrayList<String>()
 
         if(correo != "" && contrasenia != ""){
+            var progressbar = progressBar2
+            progressbar.visibility = View.VISIBLE
             val usuarioRef = db.collection("usuarios").whereEqualTo("correo", correo)
+
             usuarioRef.get().addOnSuccessListener { result ->
                 if(result != null){
                     for(document in result){
@@ -62,6 +66,7 @@ class MainActivity : AppCompatActivity(), Comunicador {
                             listaDatos.add(document.get("apellido").toString())
                             listaDatos.add(document.get("correo").toString())
                             listaDatos.add(document.get("contrasenia").toString())
+                            listaDatos.add(document.id)
 
                             alert("Login exitoso ${listaDatos[0]}") {
                                 negativeButton("Entendido"){toast("yes")}
@@ -77,21 +82,21 @@ class MainActivity : AppCompatActivity(), Comunicador {
                             startActivity(intent)
                             //com.passData(fragmentHome, listaDatos)
                         }else{
-                            alert("La combinacion correo/contraseña no es correcta.") {
-                                negativeButton("Entendido"){toast("yes")}
+                            alert("La combinacion correo/contraseña no es correcta") {
+                                negativeButton("Entendido"){toast("Intentelo nuevamente")}
                             }.show()
                         }
                     }
                 }else{
-                    alert("Esta cuenta no existe.") {
-                        negativeButton("Entendido"){toast("yes")}
+                    alert("Esta cuenta no existe") {
+                        negativeButton("Entendido"){toast("Intentelo nuevamente")}
                     }.show()
                 }
             }
         }else{
-            alert("El usuario no existe.") {
+            alert("Verifique que ha ingresado los datos correctos") {
                 title = "Alerta"
-                negativeButton("Entendido"){toast("yes")}
+                negativeButton("Entendido"){toast("Intentelo nuevamente")}
             }.show()
         }
 

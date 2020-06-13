@@ -40,6 +40,10 @@ class RegisterActivity : AppCompatActivity(), Comunicador {
         setContentView(R.layout.fragment_registro)
         setActionBar(findViewById(R.id.tbMain))
         supportActionBar?.hide()
+        btnRegresar.setOnClickListener(){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun registrarUsuario(){
@@ -50,29 +54,37 @@ class RegisterActivity : AppCompatActivity(), Comunicador {
         val contrasenia = tfContrasenia_registro.text.toString()
 
         if(correo != "" && contrasenia != "" && apellido != "" && nombre != ""){
+            var progressbar = registro_progressBar
+            progressbar.visibility = View.VISIBLE
             val usuarioRef = db.collection("usuarios").whereEqualTo("correo", correo)
             usuarioRef.get().addOnSuccessListener { result ->
                 if(result != null){
+                    if(result.documents.isEmpty()){
+                        val jsonArr = JSONArray("[{'apellido' : '${apellido}', 'contrasenia' : '${contrasenia}', 'correo' : '${correo}', 'nombre' : '${nombre}'}]")
 
-                    val jsonArr = JSONArray("[{'apellido' : '${apellido}', 'contrasenia' : '${contrasenia}', 'correo' : '${correo}', 'nombre' : '${nombre}'}]")
+                        val aux = jsonArr.get(0) as JSONObject
+                        var usuario = Usuario()
+                        usuario.correo = aux.getString("correo")
+                        usuario.nombre = aux.getString("nombre")
+                        usuario.apellido = aux.getString("apellido")
+                        usuario.contrasenia = aux.getString("contrasenia")
 
-                    val aux = jsonArr.get(0) as JSONObject
-                    var usuario = Usuario()
-                    usuario.correo = aux.getString("correo")
-                    usuario.nombre = aux.getString("nombre")
-                    usuario.apellido = aux.getString("apellido")
-                    usuario.contrasenia = aux.getString("contrasenia")
+                        //agregar a firestore el objeto
+                        db.collection("usuarios").document().set(usuario)
+                        alert("Registro exitoso") {
+                            negativeButton("Entendido"){toast("Puede iniciar sesion ahora.")}
+                        }.show()
 
-                    //agregar a firestore el objeto
-                    db.collection("usuarios").document().set(usuario)
-                    alert("Registro exitoso") {
-                        negativeButton("Entendido"){toast("Puede iniciar sesion ahora.")}
-                    }.show()
-
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                    }else{
+                        alert("Ya existe una cuenta registrada con ese correo.") {
+                            title = "Alerta"
+                            negativeButton("Entendido"){toast("yes")}
+                        }.show()
+                    }
                 }else{
-                    alert("Ya existe una cuenta registrada con ese correo.") {
+                    alert("No se pudo registrar.") {
                         title = "Alerta"
                         negativeButton("Entendido"){toast("yes")}
                     }.show()
@@ -80,7 +92,7 @@ class RegisterActivity : AppCompatActivity(), Comunicador {
             }
         }else{
             alert("Debe rellenar todos los campos.") {
-                negativeButton("Entendido"){toast("yes")}
+                negativeButton("Entendido"){toast("Intente de nuevo.")}
             }.show()
         }
     }
