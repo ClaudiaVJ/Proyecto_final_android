@@ -13,6 +13,7 @@ import org.jetbrains.anko.alert
 class LoginActivity : AppCompatActivity(), Comunicador {
 
     var datos = kotlin.collections.ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

@@ -8,6 +8,14 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:visibility="gone"/>
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="230dp"
@@ -95,7 +103,6 @@
                                 app:icon="@drawable/ic_pencil"
                                 app:iconPadding="4dp"
                                 app:iconGravity="textStart"
-                                android:onClick="register"
                                 style="@style/Widget.MaterialComponents.Button.Icon"
                                 />
                         </LinearLayout>

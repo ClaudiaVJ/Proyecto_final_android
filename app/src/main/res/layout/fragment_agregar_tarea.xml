@@ -79,60 +79,13 @@
                         android:layout_marginRight="15dp"
                         android:layout_marginLeft="15dp"/>
                     <DatePicker
+                        android:id="@+id/dpFechaEntrega_agregar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:datePickerMode="spinner"
                         android:calendarViewShown="false"/>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Integrantes de equipo"
-                            android:gravity="left"
-                            android:layout_marginTop="5dp"
-                            android:textSize="20sp"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:layout_marginRight="15dp"
-                            android:layout_marginLeft="15dp"/>
-                        <Button
-                            android:id="@+id/btnNuevoIntegrante"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Nuevo integrante"
-                            android:textSize="15dp"
-                            android:textColor="@color/colorBotonTexto"
-                            app:icon="@drawable/ic_pencil"
-                            app:iconPadding="4dp"
-                            app:iconGravity="textStart"
-                            style="@style/Widget.MaterialComponents.Button.Icon"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
 
-                        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:stretchColumns="2">
-                            <TableRow>
-                                <TextView
-                                    android:text="Aquí deberia ir el nombre de un integrante."
-                                    android:padding="3dip" />
-                            </TableRow>
-
-                            <TableRow>
-                                <TextView
-                                    android:text="Aquí debería ir el nombre de un integrante"
-                                    android:padding="3dip" />
-                            </TableRow>
-                        </TableLayout>
-
-                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">

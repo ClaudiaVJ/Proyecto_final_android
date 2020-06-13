@@ -21,6 +21,7 @@ import com.itnl.proyecto_final.network.Comunicador
 import com.itnl.proyecto_final.view.ui.fragments.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_inicio_sesion.*
+import kotlinx.android.synthetic.main.fragment_registro.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.toast
@@ -36,61 +37,68 @@ class RegisterActivity : AppCompatActivity(), Comunicador {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_inicio_sesion)
+        setContentView(R.layout.fragment_registro)
         setActionBar(findViewById(R.id.tbMain))
         supportActionBar?.hide()
+        btnRegresar.setOnClickListener(){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-    private fun loginUser(){
+    private fun registrarUsuario(){
         val db = FirebaseFirestore.getInstance()
-        val correo = tfCorreo_iniciar_sesion.text.toString()
-        val contrasenia = tfContrasenia_iniciar_sesion.text.toString()
-        var listaDatos = kotlin.collections.ArrayList<String>()
+        val nombre = tfNombre_registro.text.toString()
+        val apellido = tfApellido_reigistro.text.toString()
+        val correo = tfCorreo_registro.text.toString()
+        val contrasenia = tfContrasenia_registro.text.toString()
 
-        if(correo != "" && contrasenia != ""){
+        if(correo != "" && contrasenia != "" && apellido != "" && nombre != ""){
+            var progressbar = registro_progressBar
+            progressbar.visibility = View.VISIBLE
             val usuarioRef = db.collection("usuarios").whereEqualTo("correo", correo)
             usuarioRef.get().addOnSuccessListener { result ->
                 if(result != null){
-                    for(document in result){
-                        if(document.get("contrasenia") == contrasenia){
-                            listaDatos.add(document.get("nombre").toString())
-                            listaDatos.add(document.get("apellido").toString())
-                            listaDatos.add(document.get("correo").toString())
-                            listaDatos.add(document.get("contrasenia").toString())
+                    if(result.documents.isEmpty()){
+                        val jsonArr = JSONArray("[{'apellido' : '${apellido}', 'contrasenia' : '${contrasenia}', 'correo' : '${correo}', 'nombre' : '${nombre}'}]")
 
-                            alert("Login exitoso") {
-                                title = "Alerta"
-                                negativeButton("Entendido"){toast("yes")}
-                            }.show()
-                            val fragmentHome = HomeFragment()
-                            val bundle = Bundle()
-                            bundle.putStringArrayList("usuario",listaDatos)
-                            fragmentHome.arguments = bundle
-                            //(context as MainActivity).changeFragment(fragmentHome)
-                            com.passData(fragmentHome, listaDatos)
-                        }else{
-                            alert("La combinacion correo/contraseña no es correcta.") {
-                                negativeButton("Entendido"){toast("yes")}
-                            }.show()
-                        }
+                        val aux = jsonArr.get(0) as JSONObject
+                        var usuario = Usuario()
+                        usuario.correo = aux.getString("correo")
+                        usuario.nombre = aux.getString("nombre")
+                        usuario.apellido = aux.getString("apellido")
+                        usuario.contrasenia = aux.getString("contrasenia")
+
+                        //agregar a firestore el objeto
+                        db.collection("usuarios").document().set(usuario)
+                        alert("Registro exitoso") {
+                            negativeButton("Entendido"){toast("Puede iniciar sesion ahora.")}
+                        }.show()
+
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                    }else{
+                        alert("Ya existe una cuenta registrada con ese correo.") {
+                            title = "Alerta"
+                            negativeButton("Entendido"){toast("yes")}
+                        }.show()
                     }
                 }else{
-                    alert("Esta cuenta no existe.") {
+                    alert("No se pudo registrar.") {
+                        title = "Alerta"
                         negativeButton("Entendido"){toast("yes")}
                     }.show()
                 }
             }
         }else{
-            alert("El usuario no existe.") {
-                title = "Alerta"
-                negativeButton("Entendido"){toast("yes")}
+            alert("Debe rellenar todos los campos.") {
+                negativeButton("Entendido"){toast("Intente de nuevo.")}
             }.show()
         }
-
     }
 
-    fun login(){
-        loginUser()
+    fun crearCuenta(view: View){
+        registrarUsuario()
     }
 
     fun changeFragment(fragment: Fragment){

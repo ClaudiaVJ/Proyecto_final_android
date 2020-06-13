@@ -43,22 +43,6 @@
                             android:orientation="vertical"
                             android:gravity="center">
 
-                            <ImageView
-                                android:id="@+id/ivFotoPerfil_registro"
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                android:layout_gravity="center_horizontal"
-                                android:src="@mipmap/ic_launcher"/>
-                            <Button
-                                android:id="@+id/btnCambiarFoto"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="Elegir foto"
-                                android:textSize="15dp"
-                                android:gravity="left"
-                                android:textColor="@color/colorBotonTexto"
-                                style="@style/Widget.MaterialComponents.Button"
-                                />
                         </LinearLayout>
 
                         <TextView
@@ -146,6 +130,7 @@
                                 app:icon="@drawable/ic_pencil"
                                 app:iconPadding="4dp"
                                 app:iconGravity="textStart"
+                                android:onClick="crearCuenta"
                                 style="@style/Widget.MaterialComponents.Button.Icon"
                                 />
                             <Button
