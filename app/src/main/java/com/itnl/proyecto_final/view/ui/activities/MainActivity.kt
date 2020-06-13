@@ -39,6 +39,11 @@ class MainActivity : AppCompatActivity(), Comunicador {
         setContentView(R.layout.fragment_inicio_sesion)
         setActionBar(findViewById(R.id.tbMain))
         supportActionBar?.hide()
+
+        btnRegistrarse.setOnClickListener(){
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loginUser(){

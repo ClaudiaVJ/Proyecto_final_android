@@ -35,7 +35,6 @@ class RegistroFragment : Fragment() {
 
         btnCrearCuenta_registro.setOnClickListener(){
             val db = FirebaseFirestore.getInstance()
-
             val nombre = tfNombre_registro.text.toString()
             val apellido = tfApellido_reigistro.text.toString()
             val correo = tfCorreo_registro.text.toString()

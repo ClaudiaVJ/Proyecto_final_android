@@ -21,6 +21,7 @@ import com.itnl.proyecto_final.modelo.Tarea
 import com.itnl.proyecto_final.modelo.Usuario
 import com.itnl.proyecto_final.view.adapter.HomeAdapter
 import com.itnl.proyecto_final.view.adapter.HomeListener
+import com.itnl.proyecto_final.view.ui.activities.LoginActivity
 import com.itnl.proyecto_final.viewmodel.TareaViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_tarea.*
@@ -46,6 +47,7 @@ class HomeFragment : Fragment(), HomeListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        datos = (activity as LoginActivity).obtenerDatos()
 
         getTareas(correoDeUsuario)
         /*viewModel = ViewModelProviders.of(this).get(TareaViewModel::class.java)

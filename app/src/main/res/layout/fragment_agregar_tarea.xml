@@ -79,6 +79,7 @@
                         android:layout_marginRight="15dp"
                         android:layout_marginLeft="15dp"/>
                     <DatePicker
+                        android:id="@+id/dpFechaEntrega_agregar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:datePickerMode="spinner"
