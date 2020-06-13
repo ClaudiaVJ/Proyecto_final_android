@@ -40,28 +40,20 @@ class RegisterActivity : AppCompatActivity(), Comunicador {
         setContentView(R.layout.fragment_registro)
         setActionBar(findViewById(R.id.tbMain))
         supportActionBar?.hide()
-
-        btnCrearCuenta_registro.setOnClickListener(){
-            registrarUsuario()
-        }
     }
 
     private fun registrarUsuario(){
         val db = FirebaseFirestore.getInstance()
         val nombre = tfNombre_registro.text.toString()
         val apellido = tfApellido_reigistro.text.toString()
-        val correo = tfCorreo_iniciar_sesion.text.toString()
-        val contrasenia = tfContrasenia_iniciar_sesion.text.toString()
+        val correo = tfCorreo_registro.text.toString()
+        val contrasenia = tfContrasenia_registro.text.toString()
 
         if(correo != "" && contrasenia != "" && apellido != "" && nombre != ""){
             val usuarioRef = db.collection("usuarios").whereEqualTo("correo", correo)
             usuarioRef.get().addOnSuccessListener { result ->
                 if(result != null){
-                    alert("Ya existe una cuenta registrada con ese correo.") {
-                        title = "Alerta"
-                        negativeButton("Entendido"){toast("yes")}
-                    }.show()
-                }else{
+
                     val jsonArr = JSONArray("[{'apellido' : '${apellido}', 'contrasenia' : '${contrasenia}', 'correo' : '${correo}', 'nombre' : '${nombre}'}]")
 
                     val aux = jsonArr.get(0) as JSONObject
@@ -79,6 +71,11 @@ class RegisterActivity : AppCompatActivity(), Comunicador {
 
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
+                }else{
+                    alert("Ya existe una cuenta registrada con ese correo.") {
+                        title = "Alerta"
+                        negativeButton("Entendido"){toast("yes")}
+                    }.show()
                 }
             }
         }else{
@@ -86,7 +83,10 @@ class RegisterActivity : AppCompatActivity(), Comunicador {
                 negativeButton("Entendido"){toast("yes")}
             }.show()
         }
+    }
 
+    fun crearCuenta(view: View){
+        registrarUsuario()
     }
 
     fun changeFragment(fragment: Fragment){
