@@ -116,7 +116,6 @@ class MainActivity : AppCompatActivity(), Comunicador {
         fragment.arguments = bundle
         val transaction = this.supportFragmentManager.beginTransaction().replace(R.id.relativeLayout, fragment).commit()
         //fragment.arguments = bundle
-
     }
 
 }
