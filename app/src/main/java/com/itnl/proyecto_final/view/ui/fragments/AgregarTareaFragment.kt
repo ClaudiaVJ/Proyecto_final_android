@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_agregar_tarea.*
 /**
  * A simple [Fragment] subclass.
  */
-class AgregarTareaFragment : Fragment(), Comunicador {
+class AgregarTareaFragment : Fragment() {
 
     var correoDeUsuario: String? = ""
 
@@ -28,10 +28,6 @@ class AgregarTareaFragment : Fragment(), Comunicador {
         btnAgregarTarea.setOnClickListener(){
 
         }
-    }
-
-    override fun passData(correo: String) {
-        TODO("Not yet implemented")
     }
 
 

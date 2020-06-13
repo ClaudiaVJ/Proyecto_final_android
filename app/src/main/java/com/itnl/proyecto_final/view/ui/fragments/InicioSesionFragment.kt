@@ -10,7 +10,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.toast
 import com.itnl.proyecto_final.R
-import com.itnl.proyecto_final.modelo.Usuario
 import com.itnl.proyecto_final.network.Comunicador
 import com.itnl.proyecto_final.view.ui.activities.MainActivity
 import com.itnl.proyecto_final.view.ui.fragments.HomeFragment
@@ -38,7 +37,7 @@ class InicioSesionFragment : Fragment() {
         btnRegistrarse.setOnClickListener(){
             (context as MainActivity).changeFragment(RegistroFragment.newInstance())
         }
-
+        /*
         btnIniciarSesion.setOnClickListener(){
 
             val db = FirebaseFirestore.getInstance()
@@ -62,6 +61,11 @@ class InicioSesionFragment : Fragment() {
                                     negativeButton("Entendido"){toast("yes")}
                                 }.show()
                                 val fragmentHome = HomeFragment()
+                                val bundle = Bundle()
+                                bundle.putStringArrayList("usuario",listaDatos)
+                                fragmentHome.arguments = bundle
+                                //(context as MainActivity).changeFragment(fragmentHome)
+
                                 com.passData(fragmentHome, listaDatos)
                             }else{
                                 alert("La combinacion correo/contraseña no es correcta.") {
@@ -84,7 +88,7 @@ class InicioSesionFragment : Fragment() {
 
 
 
-        }
+        }*/
     }
 
     companion object{

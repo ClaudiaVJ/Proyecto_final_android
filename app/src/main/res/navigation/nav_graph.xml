@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/inicioSesionFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/inicioSesionFragment"
         android:name="com.itnl.expotech.view.ui.fragments.InicioSesionFragment"
@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_inicioSesionFragment_to_registroFragment"
             app:destination="@id/registroFragment" />
+        <action
+            android:id="@+id/action_inicioSesionFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
