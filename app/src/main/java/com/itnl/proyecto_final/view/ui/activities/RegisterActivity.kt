@@ -30,7 +30,7 @@ import org.json.JSONObject
 import java.util.*
 import kotlin.collections.ArrayList
 
-class MainActivity : AppCompatActivity(), Comunicador {
+class RegisterActivity : AppCompatActivity(), Comunicador {
 
     public lateinit var com: Comunicador
 
@@ -58,19 +58,16 @@ class MainActivity : AppCompatActivity(), Comunicador {
                             listaDatos.add(document.get("correo").toString())
                             listaDatos.add(document.get("contrasenia").toString())
 
-                            alert("Login exitoso ${listaDatos[0]}") {
+                            alert("Login exitoso") {
+                                title = "Alerta"
                                 negativeButton("Entendido"){toast("yes")}
                             }.show()
-                            //val fragmentHome = HomeFragment()
-                            //val bundle = Bundle()
-                            //bundle.putStringArrayList("usuario",listaDatos)
-                            //fragmentHome.arguments = bundle
-
-                            //(this as MainActivity).changeFragment(fragmentHome)
-                            val intent = Intent(this, LoginActivity::class.java)
-                            intent.putStringArrayListExtra("usuario",listaDatos)
-                            startActivity(intent)
-                            //com.passData(fragmentHome, listaDatos)
+                            val fragmentHome = HomeFragment()
+                            val bundle = Bundle()
+                            bundle.putStringArrayList("usuario",listaDatos)
+                            fragmentHome.arguments = bundle
+                            //(context as MainActivity).changeFragment(fragmentHome)
+                            com.passData(fragmentHome, listaDatos)
                         }else{
                             alert("La combinacion correo/contraseña no es correcta.") {
                                 negativeButton("Entendido"){toast("yes")}
@@ -92,7 +89,7 @@ class MainActivity : AppCompatActivity(), Comunicador {
 
     }
 
-    fun login(view: View){
+    fun login(){
         loginUser()
     }
 

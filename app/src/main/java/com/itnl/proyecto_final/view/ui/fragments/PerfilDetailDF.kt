@@ -17,6 +17,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.itnl.proyecto_final.R
 import com.itnl.proyecto_final.modelo.Usuario
 import kotlinx.android.synthetic.main.fragment_perfil_detail_dialog.*
+import org.jetbrains.anko.support.v4.alert
 
 /**
  * A simple [Fragment] subclass.
@@ -27,9 +28,13 @@ class PerfilDetailDF : Fragment() {
         super.onCreate(savedInstanceState)
         //setStyle(STYLE_NORMAL, R.style.FullScreenDialogStyle)
     }*/
+    var datos = kotlin.collections.ArrayList<String>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_perfil_detail_dialog, container, false)
+        datos = arguments?.getStringArrayList("usuario") as ArrayList<String>
+        alert { message = "${datos[0]}" }
+
 
         /*val usuario = arguments?.getSerializable("usuario") as Usuario
         toolbar.title = "Perfil"

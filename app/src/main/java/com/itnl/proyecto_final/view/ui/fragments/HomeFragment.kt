@@ -25,6 +25,7 @@ import com.itnl.proyecto_final.viewmodel.TareaViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_tarea.*
 import kotlinx.android.synthetic.main.item_tarea.*
+import org.jetbrains.anko.support.v4.alert
 
 /**
  * A simple [Fragment] subclass.
