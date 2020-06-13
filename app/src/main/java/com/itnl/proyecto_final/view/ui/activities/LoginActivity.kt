@@ -12,15 +12,20 @@ import org.jetbrains.anko.alert
 
 class LoginActivity : AppCompatActivity(), Comunicador {
 
+    var datos = kotlin.collections.ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var datos = kotlin.collections.ArrayList<String>()
+
         datos = intent.getStringArrayListExtra("usuario")
 
             setContentView(R.layout.activity_main)
             confignav()
             setActionBar(findViewById(R.id.tbMain))
             supportActionBar?.hide()
+    }
+
+    fun obtenerDatos(): kotlin.collections.ArrayList<String>{
+        return datos
     }
 
 
